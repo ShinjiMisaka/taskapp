@@ -11,7 +11,7 @@ import RealmSwift
 import UserNotifications
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
@@ -49,6 +49,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     // MARK: UITableViewDataSourceプロトコルのメソッド
     // データの数（＝セルの数）を返すメソッド
