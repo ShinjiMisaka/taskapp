@@ -41,11 +41,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func searchBarSearchButtonClicked(_ searchBar:UISearchBar) {
-        print("検索ボタンがタップ scopeIndex=\(searchBar.selectedScopeButtonIndex)")
+        self.view.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("キャンセルボタンがタップ")
+        self.view.endEditing(true)
+        searchBar.text = ""
     }
     
     // segue で画面遷移する時に呼ばれる

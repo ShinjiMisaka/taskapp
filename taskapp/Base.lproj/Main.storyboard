@@ -83,23 +83,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="fEd-zq-9BU">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="gAw-fD-Gnr"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Nji-Sc-82m"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Vso-oe-NO0"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="oIW-6a-gaO"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="Q1a-jK-h6H">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="A9C-o8-h47"/>
-                        <outlet property="searchBar" destination="rQC-gR-Rgt" id="QUH-M8-I9V"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Ytg-XV-Any"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Fcx-2k-4as"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="AYo-RP-hNq"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="97.767857142857139"/>
         </scene>
