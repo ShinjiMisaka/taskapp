@@ -17,8 +17,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     let realm = try! Realm()
-    
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
+    
+    
     
     
     
@@ -41,12 +42,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func searchBarSearchButtonClicked(_ searchBar:UISearchBar) {
+        //キーボードを消す
         self.view.endEditing(true)
+        let predicate = NSPredicate(format: "category = %@ ", searchBar.text!)
+        taskArray = realm.objects(Task.self).filter(predicate)
+        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        //キーボードを消して、文字も消す
         self.view.endEditing(true)
         searchBar.text = ""
+        let realm = try! Realm()
+        taskArray=realm.objects(Task.self)
+        tableView.reloadData()
+        
     }
     
     // segue で画面遷移する時に呼ばれる
