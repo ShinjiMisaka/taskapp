@@ -15,8 +15,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
+    //Realmのインスタンス(変数)を取得,これを使って読み書きのメソッドを呼び出します。
     let realm = try! Realm()
+    // DB内のタスクが格納されるリスト。
+    // 日付近い順\順でソート：降順
+    // 以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
     
     
@@ -45,7 +48,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //キーボードを消す
         self.view.endEditing(true)
         let predicate = NSPredicate(format: "category = %@ ", searchBar.text!)
-        taskArray = realm.objects(Task.self).filter(predicate)
+        taskArray = realm.objects(Task.self).filter(predicate).sorted(byKeyPath: "date", ascending: false)
         tableView.reloadData()
     }
     
@@ -54,7 +57,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.view.endEditing(true)
         searchBar.text = ""
         let realm = try! Realm()
-        taskArray=realm.objects(Task.self)
+        taskArray=realm.objects(Task.self).sorted(byKeyPath: "date", ascending: false)
         tableView.reloadData()
         
     }
@@ -113,6 +116,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     // MARK: UITableViewDelegateプロトコルのメソッド
     // 各セルを選択した時に実行されるメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //segueのIDを指定して遷移させる
         performSegue(withIdentifier: "cellSegue",sender: nil)
     }
     

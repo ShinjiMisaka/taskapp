@@ -5,7 +5,7 @@
 //  Created by 三坂真治 on 2019/07/05.
 //  Copyright © 2019 shinji.misaka. All rights reserved.
 //
-
+//Realmのモデルは、Swiftのクラスとして定義します。KVOとはプロパティの変更を監視するための仕組み
 import RealmSwift
 
 class Task: Object {
@@ -28,6 +28,7 @@ class Task: Object {
     /**
      id をプライマリーキーとして設定
      */
+    //データベースでそれぞれのデータを一意に識別するためのID
     override static func primaryKey() -> String? {
         return "id"
     }
